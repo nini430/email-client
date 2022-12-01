@@ -22,7 +22,7 @@ export const FormComponent = ({ refetch, socket }) => {
   const { data } = useQuery(
     ["names"],
     async () => {
-      const res = await axios.get("http://localhost:8000/api/users");
+      const res = await axios.get("https://emailappsystem.herokuapp.com/api/users");
       return res.data;
     },
     { initialData: [] }
@@ -33,7 +33,7 @@ export const FormComponent = ({ refetch, socket }) => {
 
   const sendMutation = useMutation(
     (message) => {
-      return axios.post("http://localhost:8000/api/messages", message);
+      return axios.post("https://emailappsystem.herokuapp.com/api/messages", message);
     },
     {
       onSuccess: () => {

@@ -19,7 +19,7 @@ export const SetName = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/api/users", { name });
+      const res = await axios.post("https://emailappsystem.herokuapp.com/api/users", { name });
       setNameContext(res.data);
       navigate("/");
     } catch (err) {

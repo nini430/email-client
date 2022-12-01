@@ -13,7 +13,7 @@ export const MessageSystem = () => {
   const { user, selection } = useUserContext();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8000");
+    socket.current = io("https://emailappsystem.herokuapp.com/");
   }, []);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const MessageSystem = () => {
     ["messages"],
     async () => {
       const res = await axios.get(
-        `http://localhost:8000/api/messages/${user?.name}/${selection[0]}${
+        `https://emailappsystem.herokuapp.com/api/messages/${user?.name}/${selection[0]}${
           user?.name === selection[0] ? `?toMe=true` : ""
         }`
       );
